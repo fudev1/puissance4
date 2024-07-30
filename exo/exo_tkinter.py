@@ -1,47 +1,29 @@
 import tkinter as tk
-from tkinter import Frame, Canvas
+from tkinter import * 
 
+fenetre = Tk()
 
-y = 6
-x = 7
-cell_size= 100
+label = Label(fenetre, text="Puissance 4", bg="white")
+label.pack()
+bouton=Button(fenetre, text="Fermer", command=fenetre.quit)
+bouton.pack()
+value = StringVar() 
+value.set("texte par défaut")
+entree = Entry(fenetre, textvariable="Entrer votre nom: ", width=40)
+entree.pack()
 
-fenetre = tk.Tk()
-fenetre.title("Puissance 4")
-
-
-board = [[0 for _ in range(x)] for _ in range(y)]
-
-
-Frame1 = Frame(fenetre, relief=tk.GROOVE)
-Frame1.pack(side=tk.LEFT, padx=100, pady=100)
+Frame1 = Frame(fenetre, borderwidth=2, relief=GROOVE)
+Frame1.pack(side=LEFT, padx=100, pady=100)
 
 Frame2 = Frame(fenetre, borderwidth=2, relief=GROOVE)
 Frame2.pack(side=LEFT, padx=10, pady=10)
 
+Frame3 = Frame(fenetre, bg="white", borderwidth=2, relief=GROOVE)
+Frame3.pack(side=tk.BOTTOM, padx=5, pady=5)
 
-
-
-canvas1 = Canvas(Frame1, width=x * cell_size, height=y * cell_size, bg='blue')
-canvas2 = 
-canvas3 = 
-canvas.pack()
-
-
-def draw_board():
-    for row in range(y):
-        for col in range(y):
-            x1 = col * cell_size
-            y1 = row * cell_size
-            x2 = x1 + cell_size
-            y2 = y1 + cell_size
-            canvas1.create_oval(x1 + 10, y1 + 10, x2 - 10, y2 - 10, fill='white')
-
-
-draw_board()
-
-
-fenetre.mainloop()
+Label(Frame1, text="La grille").pack(padx=300, pady=200)
+Label(Frame2, text="Les scores").pack(padx=70, pady=150)
+Label(Frame3, text= "Le tour").pack(padx=100, pady=40)
 
 
 fenetre.mainloop()
